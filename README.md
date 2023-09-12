@@ -1,0 +1,2 @@
+# Warframe_Mod_IncreasedDamage
+星际战甲 计算mod对伤害提升的百分比
