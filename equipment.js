@@ -106,7 +106,10 @@ class equipment {
         //拥有的属性对应的方法
         let funcDict = this.AttributeMethod
         //循环当前mod的所有属性，判断这个属性是否有对应的方法，将这个属性传入到这个方法中
-        for (key in mod) if (key in funcDict) funcDict[key](mod[key]);
+        for (let key in mod) if (key in funcDict) {
+            let func = funcDict[key].bind(this);
+            func(mod[key])
+        };
         //添加到缓存中
         this.mod.push(mod);
     }
@@ -163,8 +166,12 @@ class equipment {
 
 // console.log(((test2.allUp() / test1.allUp()) * 100 - 100) + "%");
 
-// console.log(test2.allUp());
-const Mod = require('./data/mod');  
 test1 = new equipment(0.22, 2.4);
-console.log(Mod)
-// test1.addMod(Mod.压迫点p);
+const Mod = require('./data/mod');
+test1.addMod(Mod.牺牲压迫点);
+test1.addMod(Mod.牺牲斩铁);
+test1.addMod(Mod.一击必杀);
+test1.addMod(Mod.并合肢解);
+test1.addMod(Mod.角斗士威猛);
+test1.addMod(Mod.元素冰触发);
+test1.addMod(Mod.元素毒触发);
